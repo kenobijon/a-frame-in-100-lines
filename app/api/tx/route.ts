@@ -4,7 +4,7 @@ import { encodeFunctionData, parseEther } from 'viem';
 import { base } from 'viem/chains';
 import { baseSepolia } from 'viem/chains';
 import BuyMeACoffeeABI from '../../_contracts/BuyMeACoffeeABI';
-import { BUY_MY_COFFEE_CONTRACT_ADDR } from '../../config';
+import { COUNTER_ADDR } from '../../config';
 import type { FrameTransactionResponse } from '@coinbase/onchainkit/frame';
 
 async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
@@ -27,8 +27,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     params: {
       abi: [],
       data,
-      to: BUY_MY_COFFEE_CONTRACT_ADDR,
-      value: parseEther('0.00004').toString(), // 0.00004 ETH
+      to: COUNTER_ADDR,
+      value: parseEther('0.000004').toString(), // 0.00004 ETH
     },
   };
   return NextResponse.json(txData);
